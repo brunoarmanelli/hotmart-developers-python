@@ -189,3 +189,51 @@ class Hotmart:
 			return data
 		except: 
 			return None
+		
+	def get_subscriptions(self, max_results=None, page_token=None, product_id=None, plan=None, 
+			start_date=None, end_date=None, accession_date=None, end_accession_date=None,
+			status=None, subscriber_code=None, subscriber_email=None, transaction=None, trial=None,
+			cancelation_date=None, end_cancelation_date=None):
+		
+		method_url = 'https://developers.hotmart.com/payments/api/v1/subscriptions'
+		headers = {'Authorization': 'Bearer ' + self.get_token()}
+		payload = {}
+		
+		if max_results:
+			payload['max_results'] = max_results
+		if page_token:
+			payload['page_token'] = page_token
+		if product_id:
+			payload['product_id'] = product_id
+		if plan:
+			payload['plan'] = plan
+		if start_date:
+			payload['start_date'] = start_date
+		if end_date:
+			payload['end_date'] = end_date
+		if accession_date:
+			payload['accession_date'] = accession_date
+		if end_accession_date:
+			payload['end_accession_date'] = end_accession_date
+		if status:
+			payload['status'] = status
+		if subscriber_code:
+			payload['subscriber_code'] = subscriber_code
+		if subscriber_email:
+			payload['subscriber_email'] = subscriber_email
+		if transaction:
+			payload['transaction'] = transaction
+		if trial:
+			payload['trial'] = trial
+		if cancelation_date:
+			payload['cancelation_date'] = cancelation_date
+		if end_cancelation_date:
+			payload['end_cancelation_date'] = end_cancelation_date
+			
+			
+		try:
+			r = requests.get(url = method_url, headers = headers, params = payload)
+			data = r.json()
+			return data
+		except: 
+			return None
