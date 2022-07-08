@@ -7,7 +7,7 @@ def read(filename):
         return file.read()
 
 setup(name='hotmart-developers-python',
-      version='0.1',
+      version='0.2',
       description='Hotmart Developers requests made easy',
       long_description=read('README.md'),
       long_description_content_type="text/markdown",

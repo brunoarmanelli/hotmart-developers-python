@@ -19,7 +19,7 @@ class Hotmart:
 			return None
 		
 	def get_sales_history(self, max_results=None, page_token=None, product_id=None, start_date=None, 
-			end_date=None, sales_source=None, transaction=None, buyer_name=None, 
+			end_date=None, sales_source=None, transaction=None, buyer_name=None, buyer_email=None,
 			transaction_status=None, payment_type=None, offer_code=None):
 
 		method_url = 'https://developers.hotmart.com/payments/api/v1/sales/history'
@@ -40,6 +40,8 @@ class Hotmart:
 			payload['transaction_status'] = transaction_status
 		if buyer_name:
 			payload['buyer_name'] = buyer_name
+		if buyer_email:
+			payload['buyer_email'] = buyer_email
 		if payment_type:
 			payload['payment_type'] = payment_type
 		if offer_code:
